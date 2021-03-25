@@ -32,7 +32,6 @@ def find_the_duplicates(all_of_the_arp):
 
         temp_mac_address.append(mac)
 
-
 def get_the_arp_table_function():
     arp_table = ""
     arp_table = os.popen("arp -a").read()
