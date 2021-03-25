@@ -1,0 +1,76 @@
+# Import the required modules for the program:
+
+import os
+import datetime
+import time
+
+# Plan a function that will extract the ARP table data from the machine.
+# Define a function that will handle the ARP table data extraction.
+# Create three variables, one to store the ARP table data, another to store a list of the separated lines, and the third to store the final filtered data.
+
+def the_logfile_business(offending_address):
+    print(offending_address)
+    print("found dup")
+    print("log this?")
+    event_date = datetime.datetime.now().strftime("%D%H:%M:%S")
+    print("opening log" + event_date)
+    time.sleep(2)
+    with open("logfile.txt", "a") as logfile:
+        logfile.write(offending_address+ event_date + "\n")
+        print("writing to log")
+
+def find_the_duplicates(all_of_the_arp):
+    #print("I WORK")
+    temp_mac_address = []
+    #print(all_of_the_arp)
+    for mac in all_of_the_arp.values():
+        print(mac)
+        if mac in temp_mac_address:
+
+            the_logfile_business(mac)
+
+        temp_mac_address.append(mac)
+
+
+def get_the_arp_table_function():
+    arp_table = ""
+    arp_table = os.popen("arp -a").read()
+    arp_table_splitup = arp_table.splitlines()
+    arp_table_final = {}
+
+    for lines in arp_table_splitup:
+        if lines.split().__len__() == 3:
+            #print(lines.split().__len__(), lines.split())
+            ip_address, mac_address, type_but_we_dont_care = lines.split()
+            if mac_address != 'ff-ff-ff-ff-ff-ff':
+                #print(ip_address)
+                #print(mac_address)
+                arp_table_final[ip_address]=mac_address
+    find_the_duplicates(arp_table_final)
+    
+# Plan a function that will identify MAC address duplication.
+# Define a function to identify duplication in MAC addresses. The function should accept a parameter.
+# Create a variable to store iterated MAC addresses for later comparison.
+# Iterate over the recorded MAC addresses and compare them to the saved ones to identify duplications.
+# Print a message that notifies when a duplication is identified.
+# In the ARP extracting function, pass the filtered data to the current function.
+
+    for mac in arp_table_final.values():
+        print(mac)
+        temp_mac_address = []
+        if mac in temp_mac_address:
+            print(mac)
+            print("found dup")
+            print("log this?")
+            event_date = datetime.datetime.now()
+            print("opening log")
+            time.sleep(2)
+            with open("logfile.txt", "a") as logfile:
+                logfile.write("dupe detect\n")
+                print("writing to log")
+        temp_mac_address.append(mac)
+
+# Create a variable to store the date and time of the event.
+
+if __name__== "__main__":
+    get_the_arp_table_function()
