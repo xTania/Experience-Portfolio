@@ -1,5 +1,6 @@
 # Experience-Portfolio
-Projects and CTFs focused around cybersecuirty (infancy stage in uploading)
+Projects and CTFs focused around cybersecuirty 
+(Infancy stage of reviewing and uploading past projects)
 
 Hello everyone, my name is Tania Ruiz, I am a cybersecurity student set to graduate this May. 
 I will be periodically uploading final projects from past courses with the purpose of 
