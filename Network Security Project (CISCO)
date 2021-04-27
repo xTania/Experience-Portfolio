@@ -1,0 +1,61 @@
+Project Mission - Manage Cisco device configurations and system files
+Set up a Wide Area Network for a mock bank that includes three LANs (one of which will be partitioned with three VLANs), and configure all network devices and endpoints to communicate with the entire WAN. As a junior network administrator, you and your team were tasked with planning and configuring a corporate network for a new bank branch in Miami. It is your duty to set up the network correctly and implement basic security settings on all systems. 
+Note: The correct hostnames are already set on all devices.
+
+Task 1: Design an IP Address Scheme
+Devise a Network Topology plan for the amount of subnets you will need, and where you want to assign the IPv4 addresses within each subnet.
+Divide the 172.16.10.0/24 network into eight subnets.
+
+172.16.10.0/24
+11111111.11111111.11111111.00000000
+172.16.10.0/27 2^3 = # of subnets     |   2^5 = 32 hosts per subnet – 2 = 30
+11111111.11111111.11111111.11100000 = 255.255.255.224
+
+ Subnet | Network       | Usable Hosts      | Broadcast     | Assignment   | VLAN
+--------------------------------------------------------------------------------------
+ 1      | 172.16.10.0   | 172.16.10.1-30    | 172.16.10.31  |	
+--------------------------------------------------------------------------------------
+ 2	    | 172.16.10.32  | 172.16.10.33-62   | 172.16.10.63	|	
+--------------------------------------------------------------------------------------
+ 3	    | 172.16.10.64  | 172.16.10.65-94   | 172.16.10.95	|	
+--------------------------------------------------------------------------------------
+ 4      | 172.16.10.96  | 172.16.10.97-126  | 172.16.10.127	|	
+--------------------------------------------------------------------------------------
+ 5      | 172.16.10.128 | 172.16.10.129-158 | 172.16.10.159	|	
+--------------------------------------------------------------------------------------
+ 6      | 172.16.10.160 | 172.16.10.161-190 | 172.16.10.191	|	
+--------------------------------------------------------------------------------------
+ 7      | 172.16.10.192 | 172.16.10.193-222 | 172.16.10.223	|	
+--------------------------------------------------------------------------------------
+ 8      | 172.16.10.224 | 172.16.10.225-254 | 172.16.10.255	|	
+
+Task 2: Implement VLANs and Trunk Configure VLANs and set trunks on the appropriate network and its associated devices. 
+
+
+
+Task 3: Assign IP Addresses Using the table you made in Task 2, assign subnets to the topology. 
+
+
+
+Task 4: Configure R1 for Inter-VLAN Routing Configure the router on the Office1 network to allow multiple VLANs to communicate on the network.
+
+
+
+Lab Task 5: Secure Switch Physical Ports Configure all switches on the network to work with Port Security.
+
+
+
+Task 6: Configure OSPF
+Configure all routers on the network with OSPF, to enable all subnets to communicate.
+
+
+
+Task 7: Initial and Security Settings for Network Devices Configure all network devices with basic security settings to prevent unauthorized access.
+
+
+
+Task 8: Secure Remote Access Configure SSHv2 services on all routers to allow for remote administration.
+
+
+
+Task 9: Extended ACL Configure ACLs to prevent guests on the network from connecting to the NTP/Syslog server.
